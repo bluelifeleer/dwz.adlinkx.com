@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>短连服务</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/index.css">
+    <script type="text/javascript" src="/resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/resources/js/javascriptTools.js"></script>
+</head>
+
+<body>
+    <div id="short-header-block-box"></div>
+    <div id="short-body-block-box">
+        <div id="short-body-contents-block">
+            <div id="short-content-left-block">
+                <div class="input-block-box">
+                    <div class="log-link-tip-block">请输入长网址：</div>
+                    <div class="log-link-input-block">
+                        <input type="text" name="log-link" id="log-link-input" placeholder="http://" />
+                    </div>
+                    <div class="selft-short-link-block"><span class="selft-link-title">自定义网址：https://dwz.adlinkx.com/&nbsp;&nbsp;</span>
+                        <input type="text" name="short-identifier" id="short-identifier"><span class="selft-link-tip-text">字母,数字,特殊字符串</span></div>
+                    <div class="generate-short-link-but-block"><a href="javascript:void(0);" id="select-generate-qr-but" data-selected="true">生成二维码</a><a id="generate-short-link-but" href="javascript:void(0);">生成短链</a></div>
+                </div>
+                <div class="output-block-box">
+                    <div class="output-shor-link-tip-block">短链接：</div>
+                    <div class="show-short-link-block" id="short-link-block"></div>
+                    <div class="short-link-but-block"><a href="javascript:void(0);" id='copy-short-but'>复制</a></div>
+                </div>
+            </div>
+            <div id="short-content-right-block">
+                <div class="generate-qr-block">
+                    <div class="show-qr-block-box">
+                        <div class="generate-qr-tip">二维码：</div>
+                        <div class="generate-qr-img"><img src="/resources/images/pic.png" id="QR-img" width="258" height="258" /></div>
+                    </div>
+                    <div class="download-qr-block"><a href="javascript:void(0);" id="download-qr-but">下载二维码</a></div>
+                </div>
+                <div class="set-size-block">
+                    <div class="set-size-bar-block">
+                        <div class="set-size-tip">尺寸：</div>
+                        <div class="set-size-dag-bar">
+                            <div id="drag-bar" data-min-value="60" data-max-value="600"></div>
+                            <i id="drag-slider" title="拖动滑块设置大小"></i>
+                            <span class="min-value-block">60</span>
+                            <span class="max-value-block">600</span>
+                        </div>
+                        <div class="size-value-block">
+                            <input type="text" id="size-value-input" name="size-value-input" value="60" />
+                        </div>
+                    </div>
+                    <div class="download-vector-qr-block"><a id="download-vector-qr-but">下载矢量二维码</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="short-foot-block-box">
+        <div class="foot-content">&copy;&nbsp;&nbsp;dwz.adlinkx.com&nbsp;&nbsp;杭州领效科技有限公司&nbsp;&nbsp;浙ICP备17012452号</div>
+    </div>
+</body>
+<script type="text/javascript" src="/resources/js/index.js"></script>
+
+</html>
