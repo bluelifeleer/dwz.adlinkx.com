@@ -12,12 +12,14 @@ function JSTools($) {
     this.confirmButBG = '#015407';
     this.msgWidth = 120;
     this.msgHeight = 50;
-
+    this.store = window.localStorage ? window.localStorage : document.cookie;
 }
 
 JSTools.prototype.alert = function(o) {
     this.timerout = 3;
-    var _this = this,_w = !this.isUndefind(o.width) && !this.empty(o.width) ? o.width : this.alertWidth,_h = !this.isUndefind(o.height) && !this.empty(o.height) ? o.height : this.alertHeight;
+    var _this = this,
+        _w = !this.isUndefind(o.width) && !this.empty(o.width) ? o.width : this.alertWidth,
+        _h = !this.isUndefind(o.height) && !this.empty(o.height) ? o.height : this.alertHeight;
     var maskLayer = document.createElement('div');
     maskLayer.id = 'alert-mask-layer';
     maskLayer.style.width = this.winW + 'px';
@@ -94,7 +96,9 @@ JSTools.prototype.alert = function(o) {
 }
 
 JSTools.prototype.confirm = function(o) {
-    var _this = this,_w = !this.isUndefind(o.width) && !this.empty(o.width) ? o.width : this.confirmWidth,_h = !this.isUndefind(o.height) && !this.empty(o.height) ? o.height : this.confirmHeight;
+    var _this = this,
+        _w = !this.isUndefind(o.width) && !this.empty(o.width) ? o.width : this.confirmWidth,
+        _h = !this.isUndefind(o.height) && !this.empty(o.height) ? o.height : this.confirmHeight;
     var maskLayer = document.createElement('div');
     maskLayer.id = 'confirm-mask-layer';
     maskLayer.style.width = this.winW + 'px';
@@ -225,6 +229,32 @@ JSTools.prototype.getUrlParas = function() {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     return r != null ? unescape(r[2]) : null;
+}
+
+/**
+ * Save data to borwser laclStore
+ * params:
+ *    one:
+ *        type string     get borwser data              return data;
+ *        json object     set data to borwser store     return window;
+ *    tow: string         set data to borwser store     return window;
+ * author:bluelife
+ * date:2017-05-12
+ * email:thebulelife@163.com
+ */
+JSTools.prototype.save_store = function() {
+    if (arguments.length == 1) {
+        if (typeof arguments[0] == 'object') {
+            var i = '';
+            for (i in arguments[0]) {
+                this.store.setItem(i, arguments[0][i]);
+            }
+        } else {
+            this.store.getItem(arguments[0]);
+        }
+    } else {
+        this.store.setItem(arguments[0], arguments[1]);
+    }
 }
 
 window.jsts = new JSTools($);
